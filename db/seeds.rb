@@ -8,13 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Generate books for a subset of users.
-users = User.order(:created_at).take(6)
+users = User.order(:created_at).take(9)
 
 50.times do
   title = Faker::Book.title
   author = Faker::Book.author
   genre = %w[Fiction Non-Fiction Mystery Sci-Fi Fantasy].sample
-  status = %w[Available Checked-Out Reserved].sample
+  status = %w[Available ].sample
   notes = Faker::Lorem.sentence(word_count: 10)
 
   users.each do |user|

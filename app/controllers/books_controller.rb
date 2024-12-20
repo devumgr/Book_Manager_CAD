@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_user
-  before_action :set_book, only: [:edit, :update, :destroy]
+  before_action :set_book, only: [:create, :edit, :update, :destroy]
 
   def new
     @book = @user.books.new
@@ -10,16 +10,13 @@ class BooksController < ApplicationController
     @book = @user.books.new(book_params)
     if @book.save
       flash[:notice] = "Book added successfully!"
-      redirect_to user_path(@user)
+      redirect_to root_url
     else
-      flash.now[:alert] = "Error adding book. Please check the form."
-      render :new
+      render 'static_pages/home', status: :unprocessable_entity
     end
   end
 
-  def index
-    @books = @user.books
-  end
+
 
   def edit
   end
@@ -30,14 +27,17 @@ class BooksController < ApplicationController
       redirect_to user_path(@user)
     else
       flash.now[:alert] = "Error updating book. Please check the form."
-      render :edit
     end
   end
 
   def destroy
     @book.destroy
     flash[:notice] = "Book deleted successfully!"
-    redirect_to user_path(@user)
+    if request.referrer.nil?
+      redirect_to root_url, status: :see_other
+    else
+      redirect_to request.referrer, status: :see_other
+    end
   end
 
   private

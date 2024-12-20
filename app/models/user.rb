@@ -17,6 +17,9 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+  def feed
+    Book.where("user_id =?", id)
+  end
   
   has_many :books, dependent: :destroy
   

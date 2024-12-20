@@ -46,6 +46,8 @@ gem "sassc-rails", "~> 2.1.0"
 gem "sprockets-rails"
 gem 'rails-controller-testing'
 
+gem 'will_paginate', '~> 3.3.1'
+gem 'faker'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

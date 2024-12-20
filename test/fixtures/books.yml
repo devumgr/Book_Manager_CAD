@@ -1,2 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 #empty
+example_book:
+  title: "Example Book"
+  author: "Example Author"
+  genre: "Fiction"
+  status: "Available"
+  user: example_user 

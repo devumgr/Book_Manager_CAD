@@ -5,7 +5,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   def setup
-    @book = books(:)
+    @book = books(:example _book)
   end
 
   test "Destroy when not logged in" do

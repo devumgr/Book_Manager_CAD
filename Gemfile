@@ -46,7 +46,7 @@ gem "sassc-rails", "~> 2.1.0"
 gem "sprockets-rails"
 gem 'rails-controller-testing'
 
-gem 'will_paginate', '~> 3.3.1'
+gem 'will_paginate', '~> 4.0.1'
 gem 'faker'
 
 group :development, :test do
